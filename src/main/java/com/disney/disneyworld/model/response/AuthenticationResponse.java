@@ -5,11 +5,8 @@ import lombok.Data;
 
 @Data
 @Builder
-public class RegisterResponse {
+public class AuthenticationResponse {
 
     private String username;
-
-    private String password;
-
-
+    private String jwt;
 }
