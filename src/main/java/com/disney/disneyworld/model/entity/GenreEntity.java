@@ -29,5 +29,4 @@ public class GenreEntity {
             fetch = FetchType.LAZY
     )
     private List<MovieEntity> movies = new ArrayList();
-
 }
