@@ -18,6 +18,7 @@ public class UserAuthService {
     private final UserDetailsCustomService userDetailsCustomService;
     private final AuthenticationManager authenticationManager;
     private final AutheMapper autheMapper;
+    private final JWTUtil jwtUtil;
 
     public AuthenticationResponse login(AuthenticationRequest authenticationRequest){
 
@@ -30,6 +31,7 @@ public class UserAuthService {
 
         authenticationManager.authenticate(authenticationToken);
 
-        return autheMapper.toDTO(userDetails, "Esta es mi JWT - reemplazar");
+        String jwt = jwtUtil.generateToken(userDetails);
+        return autheMapper.toDTO(userDetails, jwt);
     }
 }
